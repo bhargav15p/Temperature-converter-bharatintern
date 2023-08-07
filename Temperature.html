@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head> <title>Temperature Converter</title> </head>
+<body>
+<div class="converter-container">
+  <h2>Temperature Converter</h2>
+  <label class="input-label">Enter temperature in Celsius:</label>
+  <input type="number" id="celsius" class="input-field">
+
+  <label class="input-label">Enter temperature in Fahrenheit:</label>
+  <input type="number" id="fahrenheit" class="input-field">
+
+  <button class="convert-btn" onclick="convertCtoF()">Convert C to F</button>
+  <button class="convert-btn" onclick="convertFtoC()">Convert F to C</button>
+
+
+</div>
+<script>
+function convertCtoF() {
+  const celsiusInput = document.getElementById("celsius");
+  const fahrenheitInput = document.getElementById("fahrenheit");
+  const resultElement = document.getElementById("result");
+
+  if (celsiusInput.value !== "") {
+    const celsius = parseFloat(celsiusInput.value);
+    const fahrenheit = (celsius * 9/5) + 32;
+    fahrenheitInput.value = fahrenheit.toFixed(2);
+    resultElement.textContent = `${celsius}°C is ${fahrenheit.toFixed(2)}°F`;
+  } else {
+    resultElement.textContent = "Please enter a valid Celsius temperature.";
+  }
+}
+
+function convertFtoC() {
+  const celsiusInput = document.getElementById("celsius");
+  const fahrenheitInput = document.getElementById("fahrenheit");
+  const resultElement = document.getElementById("result");
+
+  if (fahrenheitInput.value !== "") {
+    const fahrenheit = parseFloat(fahrenheitInput.value);
+    const celsius = (fahrenheit - 32) * 5/9;
+    celsiusInput.value = celsius.toFixed(2);
+    resultElement.textContent = `${fahrenheit}°F is ${celsius.toFixed(2)}°C`;
+  } else {
+    resultElement.textContent = "Please enter a valid Fahrenheit temperature.";
+  }
+}
+</script>
+</body>
+</html>
